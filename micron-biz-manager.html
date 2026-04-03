@@ -1,0 +1,501 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Hertzog — Staff Business Manager | Micron</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #0B2A4A;
+    --primary: #0077C8;
+    --accent: #00A3E0;
+    --light-bg: #EDF4FA;
+    --page-bg: #F8FAFB;
+    --white: #FFFFFF;
+    --text-primary: #1C2530;
+    --text-body: #3D4E5F;
+    --text-muted: #6B7D8F;
+    --border: #DDE5ED;
+    --border-light: #EDF1F5;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 0.95rem;
+    --size-md: 1.05rem;
+    --size-lg: 1.2rem;
+    --size-xl: clamp(1.5rem, 3.5vw, 2rem);
+    --size-hero: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(0,119,200,0.18) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -8%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(0,163,224,0.1) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--size-hero);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-role {
+    font-size: var(--size-lg);
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--primary);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.5s;
+  }
+
+  .hero-intro {
+    font-size: var(--size-md);
+    line-height: 1.85;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    max-width: 620px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: var(--size-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .tackle-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem 1.75rem 1.75rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .tackle-card:hover {
+    box-shadow: 0 6px 24px rgba(0,42,74,0.07);
+    border-color: rgba(0,119,200,0.25);
+  }
+
+  .tackle-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 8px 0 0 8px;
+  }
+
+  .tackle-card h3 {
+    font-size: var(--size-md);
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .tackle-card p {
+    font-size: var(--size-sm);
+    margin-bottom: 0;
+  }
+
+  .item-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .item-list li {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.5rem;
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+
+  .item-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+
+  .philosophy-block {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    border-left: 3px solid var(--primary);
+  }
+
+  .philosophy-block p {
+    font-size: var(--size-base);
+    line-height: 1.85;
+    color: var(--text-primary);
+    margin-bottom: 0;
+  }
+
+  .role-entry {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .role-entry:last-child { border-bottom: none; }
+
+  .role-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .role-company {
+    font-weight: 600;
+    font-size: var(--size-base);
+    color: var(--deep);
+  }
+
+  .role-title {
+    font-size: var(--size-sm);
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .role-desc {
+    font-size: var(--size-sm);
+    color: var(--text-body);
+    margin-bottom: 0;
+  }
+
+  .personal-section p {
+    font-size: var(--size-base);
+    line-height: 1.8;
+  }
+
+  .contact-footer {
+    background: var(--deep);
+    color: white;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(0,119,200,0.12) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .contact-footer h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: var(--size-xl);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .contact-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: var(--size-sm);
+    font-weight: 400;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-links a:hover { color: var(--accent); }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .content { padding: 0 1.5rem; }
+    section { padding: 2.25rem 0; }
+    .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+    .philosophy-block { padding: 1.5rem; }
+    .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+    .contact-footer { padding: 2.5rem 1.5rem; }
+    .role-header { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">Staff Business Manager, Cloud/CMBU — Micron</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">I've owned product lifecycles, built business plans, managed margins, and driven cross-functional execution at companies where the number on the board was mine. From tripling a company's revenue to building a pipeline as a founder, I know what it means to be accountable for business results.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <section class="fade-in">
+    <div class="section-label">Why I Want This Job</div>
+    <p>This role is about owning the business side of products across their full lifecycle, from planning through execution through end-of-life, and being accountable for results along the way. That's a pretty accurate description of how I've actually spent the last eight years, just in different industries and at different scales. I grew up in Boise and I'm moving back with my family, and CMBU is working on products at the center of the AI and cloud infrastructure shift, which is the kind of work that's hard to find outside of a handful of companies in the world.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Three Things I'd Tackle</div>
+
+    <div class="tackle-card">
+      <h3>Owning a business plan that delivers actual targets.</h3>
+      <p>At Affinity, I helped drive the company from $17M to $60M ARR. That meant quarterly planning, demand forecasting, and constant alignment between product, sales, marketing, and operations. As a founder at RTW Flooring, I built business plans, set pricing, managed margins, and generated $550K in qualified pipeline in under five months. I've had my name next to a number and felt the weight of being the person responsible for whether it gets hit.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Being the hub that keeps cross-functional teams moving together.</h3>
+      <p>Product launches at Affinity required tight coordination across engineering, sales, marketing, Customer Success, and senior leadership. Big product launches and keynote presentations meant aligning multiple departments and managing up through executives who cared deeply about the details. At Jelli, I was one of the first employees and wore every hat: Customer Success, enablement, product marketing, lifecycle. I've spent my career learning how different teams think and how to keep them rowing in the same direction.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Making portfolio tradeoff decisions with data and good judgment.</h3>
+      <p>GTM timing, roadmap bets, and end-of-life calls all require both. My win/loss programs at Affinity gave product and sales teams the data they needed to make better decisions about what to build and how to sell it. But I've also learned to trust the pattern recognition that comes from sitting in hundreds of customer conversations and watching what actually moves a market versus what sounds good in a strategy deck.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Questions I'd Ask in My First Week</div>
+    <ul class="item-list">
+      <li>Where are the biggest gaps between current plans and where we need to be?</li>
+      <li>Where do cross-functional handoffs work well, and where do they break down?</li>
+      <li>What portfolio decisions are on the horizon in the next six months?</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I Think About This Work</div>
+    <div class="philosophy-block">
+      <p>Create clarity in complexity. Customers want different things. Products have tradeoffs. Internal teams have different incentives. Your job is to make it all work toward a shared outcome by asking: what does the data say, what does the customer need, what can we actually execute, and what's the highest-leverage move right now? I'm comfortable with ambiguity, but I always push toward a clear recommendation.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I'd Want to Be Held Accountable</div>
+    <ul class="item-list">
+      <li>Revenue targets.</li>
+      <li>Forecast accuracy.</li>
+      <li>Whether cross-functional partners trust the process and want to work with me.</li>
+      <li>Portfolio health: margin performance, lifecycle management, GTM execution quality.</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">My Background</div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Affinity</span>
+        <span class="role-title">Director of Product Marketing</span>
+      </div>
+      <p class="role-desc">GTM execution, competitive positioning, revenue strategy, customer research that fed product and business planning. $17M to $60M ARR.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Right This Way Flooring</span>
+        <span class="role-title">Co-Founder</span>
+      </div>
+      <p class="role-desc">Every aspect of business planning and execution. Pricing, margins, demand generation, sales process, referral program. $550K pipeline in under five months.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Autodesk</span>
+        <span class="role-title">Product Marketing Manager</span>
+      </div>
+      <p class="role-desc">Product launches, persona development, cross-functional enablement for TradeTapp.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">iHeartMedia (via Jelli)</span>
+        <span class="role-title">Early Employee</span>
+      </div>
+      <p class="role-desc">Customer Success, enablement, product marketing, lifecycle. All feeding business outcomes in a fast-moving ad tech environment.</p>
+    </div>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Working With Me</div>
+    <p>People who've worked with me would tell you that I listen well and genuinely care about the people around me. I've managed C-suite relationships on enterprise projects and I've also been the one rolling up my sleeves to get the unglamorous work done, because I've always believed in staying a producer even when I'm in a leadership role. Honest, specific feedback matters to me, both giving it with respect and actively seeking it on my own work. When a meeting could be an async update, I'll say so, and when we do meet, there's an agenda and we end on time.</p>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Something About Me</div>
+    <p>For two years I lived in rural China as the only foreigner in town, without knowing the language when I arrived. After that I backpacked through Asia for almost a year, including motorcycling up the length of Vietnam. These days you'll find me on multi-week canoe fishing expeditions deep in the Canadian wilderness, or playing guitar, banjo, or mandolin at home with my family. Musical theater as a kid is probably why standing in front of a room at a customer advisory board has never really bothered me. Volunteering at Boys and Girls Club when I can keeps me connected to the community, which matters to me.</p>
+  </section>
+
+</div>
+
+<footer class="contact-footer">
+  <h2>Let's talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank" rel="noopener">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Hertzog — Communications & Brand Manager | Simplot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #3B2F1E;
+    --primary: #AC8400;
+    --accent: #DAAA00;
+    --light-bg: #FAF6EC;
+    --page-bg: #FAFAF7;
+    --white: #FFFFFF;
+    --text-primary: #1C2530;
+    --text-body: #3D4E5F;
+    --text-muted: #6B7D8F;
+    --border: #DDE5ED;
+    --border-light: #EDF1F5;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 0.95rem;
+    --size-md: 1.05rem;
+    --size-lg: 1.2rem;
+    --size-xl: clamp(1.5rem, 3.5vw, 2rem);
+    --size-hero: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(172,132,0,0.15) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -8%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(218,170,0,0.08) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--size-hero);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-role {
+    font-size: var(--size-lg);
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--primary);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.5s;
+  }
+
+  .hero-intro {
+    font-size: var(--size-md);
+    line-height: 1.85;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    max-width: 620px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: var(--size-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .tackle-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem 1.75rem 1.75rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .tackle-card:hover {
+    box-shadow: 0 6px 24px rgba(59,47,30,0.06);
+    border-color: rgba(172,132,0,0.25);
+  }
+
+  .tackle-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 8px 0 0 8px;
+  }
+
+  .tackle-card h3 {
+    font-size: var(--size-md);
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .tackle-card p {
+    font-size: var(--size-sm);
+    margin-bottom: 0;
+  }
+
+  .item-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .item-list li {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.5rem;
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+
+  .item-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+
+  .philosophy-block {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    border-left: 3px solid var(--primary);
+  }
+
+  .philosophy-block p {
+    font-size: var(--size-base);
+    line-height: 1.85;
+    color: var(--text-primary);
+    margin-bottom: 0;
+  }
+
+  .role-entry {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .role-entry:last-child { border-bottom: none; }
+
+  .role-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .role-company {
+    font-weight: 600;
+    font-size: var(--size-base);
+    color: var(--deep);
+  }
+
+  .role-title {
+    font-size: var(--size-sm);
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .role-desc {
+    font-size: var(--size-sm);
+    color: var(--text-body);
+    margin-bottom: 0;
+  }
+
+  .personal-section p {
+    font-size: var(--size-base);
+    line-height: 1.8;
+  }
+
+  .contact-footer {
+    background: var(--deep);
+    color: white;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(172,132,0,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .contact-footer h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: var(--size-xl);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .contact-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: var(--size-sm);
+    font-weight: 400;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-links a:hover { color: var(--accent); }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .content { padding: 0 1.5rem; }
+    section { padding: 2.25rem 0; }
+    .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+    .philosophy-block { padding: 1.5rem; }
+    .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+    .contact-footer { padding: 2.5rem 1.5rem; }
+    .role-header { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">Communications & Brand Manager — Simplot</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">I build brand stories, content systems, and editorial workflows. I've done it at startups where I was the only person doing any of it, and I've done it inside a Fortune 500 where the brand was already established and the challenge was staying consistent at scale.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <section class="fade-in">
+    <div class="section-label">Why I Want This Job</div>
+    <p>My grandparents were farmers in Iowa and Alabama, and I grew up in Boise. Simplot has always felt familiar to me through family friends Anne Roegiers and Jean Murphy, who spent their careers here. I'm moving home with my wife and two boys, and I want to work somewhere that feels connected to this community and this place. The role also just lines up well with what I do. I've spent eight years building brand stories, content systems, and editorial workflows, for startups where I was the only one doing it and at a Fortune 500 where the challenge was consistency at scale.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Three Things I'd Tackle</div>
+
+    <div class="tackle-card">
+      <h3>Creating content that makes a giant company feel personal.</h3>
+      <p>Simplot spans food processing, mining, fertilizer, farming, and ranching across nine countries. The risk is content that reads like it was written for everyone and lands with no one. At Affinity, I wrote for audiences as different as junior analysts and Fortune 500 managing partners and made both groups feel like the message was for them. The trick is always specificity. Real stories about real people doing real work outperform corporate generalities every single time.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Building editorial standards that enable good work, not slow it down.</h3>
+      <p>At Affinity, I created the messaging frameworks that became the source of truth for how the company described itself, its products, and its value. At RTW Flooring, I built the entire brand identity from scratch: name, voice, visual direction, website copy, social presence, sales pitch language, even the in-store experience. I've built these systems from zero and I know the difference between guardrails that help people do better work and bureaucracy that just creates bottlenecks.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Keeping content projects moving across teams.</h3>
+      <p>The role coordinates with Creative Services, PR, Communications Business Partners, and leadership. That's project management muscle I've built across every company I've worked at. I've managed agencies and offshore talent on projects, coordinated big product launches with tight cross-functional dependencies, and produced keynote presentations that required alignment through senior leadership. I keep things organized, I flag problems before they become emergencies, and I respect other people's time.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Questions I'd Ask in My First Week</div>
+    <ul class="item-list">
+      <li>What does the editorial workflow look like end-to-end, and where does it typically slow down?</li>
+      <li>Which channels are working well and which feel like they're going through the motions?</li>
+      <li>What does the Simplot voice sound like at its best, and where does it tend to get muddled?</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I Think About This Work</div>
+    <div class="philosophy-block">
+      <p>The core brand story stays the same, but how you tell it has to shift by audience, channel, and moment. And the best brand content almost never comes from the comms team brainstorming in a conference room. It comes from going out into the company, finding the people doing interesting work, and helping them tell their own story in a way that reflects who Simplot is and what it stands for.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I'd Want to Be Held Accountable</div>
+    <ul class="item-list">
+      <li>Content quality and brand consistency across everything that goes out.</li>
+      <li>Projects delivered on time and on brief.</li>
+      <li>Whether content actually performs in terms of reach, engagement, and relevance.</li>
+      <li>Whether internal partners find the editorial process easy and productive to work with.</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">My Background</div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Affinity</span>
+        <span class="role-title">Director of Product Marketing</span>
+      </div>
+      <p class="role-desc">Messaging frameworks, content systems, customer case studies, event content, client content partnerships, executive materials for a company that tripled revenue.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Right This Way Flooring</span>
+        <span class="role-title">Co-Founder</span>
+      </div>
+      <p class="role-desc">Built the entire brand from nothing: identity, voice, website, social, all customer materials, referral program, event marketing strategy, and the in-store sales experience.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Autodesk</span>
+        <span class="role-title">Product Marketing Manager</span>
+      </div>
+      <p class="role-desc">Persona-specific content for TradeTapp across audiences with different needs, different language, and different levels of technical comfort.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">iHeartMedia (via Jelli)</span>
+        <span class="role-title">Content & Customer Success</span>
+      </div>
+      <p class="role-desc">Content for customer engagement and lifecycle programs. Adapted messaging through a major corporate acquisition.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Side Projects</span>
+        <span class="role-title">Independent</span>
+      </div>
+      <p class="role-desc">Built a meditation and wellness blog and a newsletter that was supposed to be the opposite of Morning Brew: art, history, forgotten heroes, songs, books, random local news that makes you smile. Both were exercises in editorial voice, audience building, web design, and advertising, all done from scratch.</p>
+    </div>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Working With Me</div>
+    <p>People who've worked with me would tell you that I listen well and genuinely care about the people around me. I've managed C-suite relationships on enterprise projects and I've also been the one rolling up my sleeves to get the unglamorous work done, because I've always believed in staying a producer even when I'm in a leadership role. Honest, specific feedback matters to me, both giving it with respect and actively seeking it on my own work. When a meeting could be an async update, I'll say so, and when we do meet, there's an agenda and we end on time.</p>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Something About Me</div>
+    <p>For two years I lived in rural China as the only foreigner in town, without knowing the language when I arrived. After that I backpacked through Asia for almost a year, including motorcycling up the length of Vietnam. These days you'll find me on multi-week canoe fishing expeditions deep in the Canadian wilderness, or playing guitar, banjo, or mandolin at home with my family. Musical theater as a kid is probably why standing in front of a room at a customer advisory board has never really bothered me. Volunteering at Boys and Girls Club when I can keeps me connected to the community, which matters to me.</p>
+  </section>
+
+</div>
+
+<footer class="contact-footer">
+  <h2>Let's talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank" rel="noopener">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>

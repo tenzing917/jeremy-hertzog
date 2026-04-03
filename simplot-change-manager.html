@@ -1,0 +1,508 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Hertzog — Communications Change Manager | Simplot</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #3B2F1E;
+    --primary: #AC8400;
+    --accent: #DAAA00;
+    --light-bg: #FAF6EC;
+    --page-bg: #FAFAF7;
+    --white: #FFFFFF;
+    --text-primary: #1C2530;
+    --text-body: #3D4E5F;
+    --text-muted: #6B7D8F;
+    --border: #DDE5ED;
+    --border-light: #EDF1F5;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 0.95rem;
+    --size-md: 1.05rem;
+    --size-lg: 1.2rem;
+    --size-xl: clamp(1.5rem, 3.5vw, 2rem);
+    --size-hero: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(172,132,0,0.15) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -8%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(218,170,0,0.08) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='0.03'/%3E%3C/svg%3E");
+    background-size: 200px;
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 720px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--size-hero);
+    font-weight: 700;
+    line-height: 1.15;
+    margin-bottom: 0.75rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.2s;
+  }
+
+  .hero-role {
+    font-size: var(--size-lg);
+    color: var(--accent);
+    font-weight: 500;
+    line-height: 1.4;
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.4s;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 2px;
+    background: var(--primary);
+    margin-bottom: 2rem;
+    opacity: 0;
+    animation: fadeUp 0.5s ease forwards 0.5s;
+  }
+
+  .hero-intro {
+    font-size: var(--size-md);
+    line-height: 1.85;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    max-width: 620px;
+    opacity: 0;
+    animation: fadeUp 0.6s ease forwards 0.6s;
+  }
+
+  .content {
+    max-width: 720px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 3rem 0;
+    border-bottom: 1px solid var(--border);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: var(--size-xs);
+    font-weight: 600;
+    letter-spacing: 0.12em;
+    text-transform: uppercase;
+    color: var(--primary);
+    margin-bottom: 1.25rem;
+  }
+
+  p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+    margin-bottom: 1rem;
+  }
+
+  p:last-child { margin-bottom: 0; }
+
+  .tackle-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    padding: 1.75rem 1.75rem 1.75rem 2rem;
+    margin-bottom: 1rem;
+    position: relative;
+    transition: box-shadow 0.3s ease, border-color 0.3s ease;
+  }
+
+  .tackle-card:hover {
+    box-shadow: 0 6px 24px rgba(59,47,30,0.06);
+    border-color: rgba(172,132,0,0.25);
+  }
+
+  .tackle-card::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 3px;
+    background: linear-gradient(180deg, var(--primary), var(--accent));
+    border-radius: 8px 0 0 8px;
+  }
+
+  .tackle-card h3 {
+    font-size: var(--size-md);
+    font-weight: 600;
+    color: var(--deep);
+    margin-bottom: 0.6rem;
+    line-height: 1.4;
+  }
+
+  .tackle-card p {
+    font-size: var(--size-sm);
+    margin-bottom: 0;
+  }
+
+  .item-list {
+    list-style: none;
+    margin-top: 0.5rem;
+  }
+
+  .item-list li {
+    position: relative;
+    padding: 0.75rem 0 0.75rem 1.5rem;
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.65;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+
+  .item-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.1rem;
+    width: 6px;
+    height: 6px;
+    background: var(--primary);
+    border-radius: 50%;
+  }
+
+  .philosophy-block {
+    background: var(--light-bg);
+    border-radius: 8px;
+    padding: 2rem;
+    border-left: 3px solid var(--primary);
+  }
+
+  .philosophy-block p {
+    font-size: var(--size-base);
+    line-height: 1.85;
+    color: var(--text-primary);
+    margin-bottom: 0;
+  }
+
+  .role-entry {
+    padding: 1.25rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .role-entry:last-child { border-bottom: none; }
+
+  .role-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.6rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.35rem;
+  }
+
+  .role-company {
+    font-weight: 600;
+    font-size: var(--size-base);
+    color: var(--deep);
+  }
+
+  .role-title {
+    font-size: var(--size-sm);
+    color: var(--primary);
+    font-weight: 500;
+  }
+
+  .role-desc {
+    font-size: var(--size-sm);
+    color: var(--text-body);
+    margin-bottom: 0;
+  }
+
+  .personal-section p {
+    font-size: var(--size-base);
+    line-height: 1.8;
+  }
+
+  .contact-footer {
+    background: var(--deep);
+    color: white;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(172,132,0,0.10) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .contact-footer h2 {
+    color: white;
+    margin-bottom: 1.5rem;
+    font-size: var(--size-xl);
+    font-weight: 600;
+    position: relative;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .contact-links a {
+    color: rgba(255,255,255,0.75);
+    text-decoration: none;
+    font-size: var(--size-sm);
+    font-weight: 400;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-links a:hover { color: var(--accent); }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  @keyframes fadeUp {
+    from { opacity: 0; transform: translateY(16px); }
+    to { opacity: 1; transform: translateY(0); }
+  }
+
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .content { padding: 0 1.5rem; }
+    section { padding: 2.25rem 0; }
+    .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+    .philosophy-block { padding: 1.5rem; }
+    .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+    .contact-footer { padding: 2.5rem 1.5rem; }
+    .role-header { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">Communications Change Manager — Simplot</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">I've guided teams through acquisitions, rapid scaling, org redesigns, and brand-new business launches. Every time, the thing that made the difference was whether people felt informed, respected, and clear on what was happening and why.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <section class="fade-in">
+    <div class="section-label">Why I Want This Job</div>
+    <p>I've been through enough organizational change to know that the difference between a smooth transition and a painful one almost always comes down to whether people felt informed and respected along the way. Simplot's Global Food division is going through the kind of transformation where that matters most: acquisitions, integrations, system rollouts, cultural shifts. I've lived through all of those at different companies and I know what good change communication looks like during those moments and what bad communication costs. I grew up here, I'm coming back with my family, and I'd like to do this work for a company I genuinely care about.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Three Things I'd Tackle</div>
+
+    <div class="tackle-card">
+      <h3>Making change communication that people actually read and trust.</h3>
+      <p>Most change comms tell people what is changing without explaining why it matters to them or how it affects their actual work on a Tuesday morning. At Affinity, I built communication frameworks specifically designed to bridge that gap: what's changing, why, what it means for you, what to expect, and where to ask questions. I built messaging hierarchies, timelines, and leader toolkits so the message was consistent whether it came from a VP or a team lead.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Being a useful partner to HR and project leads, not a bottleneck.</h3>
+      <p>This role isn't about leading change management. It's about making sure communication is woven into every change activity so nothing launches without people understanding it first. That's how I've always worked. At Affinity and Autodesk, I partnered across teams with very different priorities and timelines, and I earned trust by being reliable, responsive, and by delivering work that made other people's jobs easier rather than harder.</p>
+    </div>
+    <div class="tackle-card">
+      <h3>Creating real feedback channels, not suggestion boxes.</h3>
+      <p>The job description mentions two-way communication and capturing employee sentiment, which I think is one of the most important and most neglected parts of change work. At Affinity, I built structured feedback loops through customer advisory boards, win/loss interviews, and research programs. The same principles apply internally. You have to create a real way for people to tell you what they're thinking, and then you have to visibly act on what you hear. I also just have a natural disposition for this. People tend to share things with me because I listen without judgment and I follow up.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Questions I'd Ask in My First Week</div>
+    <ul class="item-list">
+      <li>What are the highest-priority change initiatives in Global Food right now?</li>
+      <li>What has past change communication looked like here, what worked and what fell flat?</li>
+      <li>How do employees currently share feedback during transitions, and does anyone act on it?</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I Think About This Work</div>
+    <div class="philosophy-block">
+      <p>When an organization is changing, everyone's first question is "what does this mean for me?" The best change communication acknowledges that directly, provides real clarity, and gives people a voice in the process. Over-communicate during transitions because silence breeds anxiety. Equip leaders with talking points and toolkits so the message is consistent. And keep reinforcing after go-live, because adoption is a process that takes time, not an announcement that happens once.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I'd Want to Be Held Accountable</div>
+    <ul class="item-list">
+      <li>Whether employees understand and adopt key changes.</li>
+      <li>Leader satisfaction with communication materials and support.</li>
+      <li>Timeliness and quality of delivery.</li>
+      <li>Fewer surprises and fewer "nobody told me" moments.</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">My Background</div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Affinity</span>
+        <span class="role-title">Communications & Enablement</span>
+      </div>
+      <p class="role-desc">Communicated through $17M to $60M ARR scaling: reorgs, new leadership, shifting strategy, constant organizational evolution. Built the frameworks that kept teams aligned through all of it.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">iHeartMedia (via Jelli)</span>
+        <span class="role-title">Internal Communications</span>
+      </div>
+      <p class="role-desc">Full acquisition. Shaped internal messaging for a combined organization navigating a completely new identity and structure.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Right This Way Flooring</span>
+        <span class="role-title">Co-Founder</span>
+      </div>
+      <p class="role-desc">Built a business from nothing and brought a small team along through every pivot, decision, and course correction. That's change management in its purest form.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Autodesk</span>
+        <span class="role-title">Cross-Functional Communications</span>
+      </div>
+      <p class="role-desc">Cross-functional communication across diverse teams with different workflows during product launches and enablement initiatives.</p>
+    </div>
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Consulting (2026)</span>
+        <span class="role-title">Independent</span>
+      </div>
+      <p class="role-desc">Supporting early-stage startups through product pivots, new GTM strategies, and the kind of organizational building where everything is changing all the time.</p>
+    </div>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Working With Me</div>
+    <p>People who've worked with me would tell you that I listen well and genuinely care about the people around me. I've managed C-suite relationships on enterprise projects and I've also been the one rolling up my sleeves to get the unglamorous work done, because I've always believed in staying a producer even when I'm in a leadership role. Honest, specific feedback matters to me, both giving it with respect and actively seeking it on my own work. When a meeting could be an async update, I'll say so, and when we do meet, there's an agenda and we end on time.</p>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Something About Me</div>
+    <p>For two years I lived in rural China as the only foreigner in town, without knowing the language when I arrived. After that I backpacked through Asia for almost a year, including motorcycling up the length of Vietnam. These days you'll find me on multi-week canoe fishing expeditions deep in the Canadian wilderness, or playing guitar, banjo, or mandolin at home with my family. Musical theater as a kid is probably why standing in front of a room at a customer advisory board has never really bothered me. Volunteering at Boys and Girls Club when I can keeps me connected to the community, which matters to me.</p>
+  </section>
+
+</div>
+
+<footer class="contact-footer">
+  <h2>Let's talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank" rel="noopener">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
