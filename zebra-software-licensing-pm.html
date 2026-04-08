@@ -1,0 +1,497 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Hertzog — Software Licensing Product Manager | Zebra Technologies</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,300;1,400&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --deep: #0D0D0D;
+    --primary: #BFFF00;
+    --accent: #D4FF4D;
+    --light-bg: #F4FAE6;
+    --page-bg: #F8F9FB;
+    --white: #FFFFFF;
+    --text-primary: #1C1C1E;
+    --text-body: #3A3D42;
+    --text-muted: #6B7280;
+    --border: #DDE2E8;
+    --border-light: #EDF0F4;
+    --primary-on-light: #5A7A00;
+    --sans: 'DM Sans', -apple-system, sans-serif;
+
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 0.95rem;
+    --size-md: 1.05rem;
+    --size-lg: 1.2rem;
+    --size-xl: clamp(1.5rem, 3.5vw, 2rem);
+    --size-hero: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--sans);
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* ── HERO ── */
+  .hero {
+    background: var(--deep);
+    color: white;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -40%;
+    right: -15%;
+    width: 650px;
+    height: 650px;
+    background: radial-gradient(circle, rgba(191,255,0,0.14) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -25%;
+    left: -8%;
+    width: 450px;
+    height: 450px;
+    background: radial-gradient(circle, rgba(191,255,0,0.08) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .hero-texture {
+    position: absolute;
+    inset: 0;
+    background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.03'/%3E%3C/svg%3E");
+    opacity: 0.5;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--size-hero);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.2rem;
+  }
+
+  .hero-role {
+    font-size: var(--size-lg);
+    color: var(--accent);
+    font-weight: 500;
+    margin-bottom: 1.25rem;
+    letter-spacing: -0.01em;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--primary);
+    border-radius: 2px;
+    margin-bottom: 1.25rem;
+  }
+
+  .hero-intro {
+    font-size: var(--size-md);
+    line-height: 1.75;
+    color: rgba(255,255,255,0.82);
+    max-width: 600px;
+    font-weight: 300;
+  }
+
+  /* ── CONTENT ── */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  section:last-child { border-bottom: none; }
+
+  .section-label {
+    font-size: var(--size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary-on-light);
+    margin-bottom: 1rem;
+  }
+
+  section > p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.8;
+  }
+
+  /* ── TACKLE CARDS ── */
+  .tackle-card {
+    background: var(--white);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--primary-on-light);
+    border-radius: 6px;
+    padding: 1.35rem 1.5rem 1.35rem 1.75rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.2s ease;
+  }
+
+  .tackle-card:hover {
+    box-shadow: 0 2px 12px rgba(90,122,0,0.08);
+  }
+
+  .tackle-card:last-child { margin-bottom: 0; }
+
+  .tackle-card h3 {
+    font-size: var(--size-md);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+    letter-spacing: -0.01em;
+  }
+
+  .tackle-card p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+  }
+
+  /* ── LISTS ── */
+  .item-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .item-list li {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+    padding: 0.6rem 0;
+    padding-left: 1.25rem;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .item-list li:last-child { border-bottom: none; }
+
+  .item-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.05rem;
+    width: 6px;
+    height: 6px;
+    border-radius: 50%;
+    background: var(--primary-on-light);
+  }
+
+  /* ── PHILOSOPHY ── */
+  .philosophy-block {
+    background: var(--light-bg);
+    border-left: 3px solid var(--primary-on-light);
+    border-radius: 0 6px 6px 0;
+    padding: 1.75rem 2rem;
+  }
+
+  .philosophy-block p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.8;
+  }
+
+  /* ── BACKGROUND ── */
+  .role-entry {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .role-entry:last-child { border-bottom: none; }
+
+  .role-header {
+    display: flex;
+    align-items: baseline;
+    gap: 0.5rem;
+    flex-wrap: wrap;
+    margin-bottom: 0.3rem;
+  }
+
+  .role-company {
+    font-weight: 600;
+    font-size: var(--size-md);
+    color: var(--text-primary);
+  }
+
+  .role-title {
+    font-size: var(--size-sm);
+    color: var(--text-muted);
+    font-weight: 400;
+  }
+
+  .role-desc {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.75;
+  }
+
+  /* ── PERSONAL ── */
+  .personal-section p {
+    font-size: var(--size-base);
+    color: var(--text-body);
+    line-height: 1.8;
+  }
+
+  /* ── FOOTER ── */
+  .contact-footer {
+    background: var(--deep);
+    color: white;
+    text-align: center;
+    padding: 3.5rem 2rem;
+    margin-top: 1rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(191,255,0,0.1) 0%, transparent 65%);
+    border-radius: 50%;
+  }
+
+  .contact-footer h2 {
+    font-size: var(--size-xl);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+    letter-spacing: -0.02em;
+  }
+
+  .contact-links {
+    display: flex;
+    justify-content: center;
+    gap: 2rem;
+    flex-wrap: wrap;
+    position: relative;
+  }
+
+  .contact-links a {
+    color: rgba(255,255,255,0.85);
+    text-decoration: none;
+    font-size: var(--size-sm);
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    transition: color 0.2s;
+  }
+
+  .contact-links a:hover { color: var(--accent); }
+
+  .contact-icon {
+    width: 18px;
+    height: 18px;
+    stroke-width: 1.5;
+  }
+
+  /* ── ANIMATIONS ── */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(16px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .content { padding: 0 1.5rem; }
+    section { padding: 2.25rem 0; }
+    .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+    .philosophy-block { padding: 1.5rem; }
+    .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+    .contact-footer { padding: 2.5rem 1.5rem; }
+    .role-header { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">Software Licensing Product Manager</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">I've spent my career helping companies make sense of complicated things. Software licensing is where product strategy, pricing, customer value, and sales enablement all intersect, and that intersection is exactly where I do my best work.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <section class="fade-in">
+    <div class="section-label">Why I Want This Job</div>
+    <p>Zebra sits at the center of something I find genuinely interesting: the shift from hardware-defined to software-defined value where the stakes are real and measurable. Shrink, inventory accuracy, customer satisfaction. Software licensing is how Zebra deepens those customer relationships from a one-time hardware purchase to an ongoing partnership. I've spent the last several years doing exactly this: building recurring revenue models, defining pricing strategies, and translating complex product value into language sales teams and customers actually understand. The fact that it's a company with real hardware-software complexity and an embedded customer base, not just another pure SaaS play, makes it more interesting to me, not less.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Three Things I'd Tackle</div>
+
+    <div class="tackle-card">
+      <h3>Building the business case and financial model from real data, not assumptions.</h3>
+      <p>At Affinity, I built the company's first win/loss analysis program, which became the data foundation for pricing decisions, competitive positioning, renewal health, and churn analysis. ARR projections, customer lifetime value, subscription tier economics, usage-based consumption modeling: I've done all of it hands-on, and I know how to link usage trends to upsell opportunities and broader lifecycle value. I built business cases at both Affinity and Autodesk that directly influenced product and pricing decisions, including situations where the data told an unfavorable story and the audience needed to hear it clearly.</p>
+    </div>
+
+    <div class="tackle-card">
+      <h3>Defining the product offer and positioning it against embedded alternatives.</h3>
+      <p>At Affinity, I owned product marketing end-to-end for a CRM scaling from $17M to $60M ARR: packaging, positioning, pricing narratives, and the materials that helped reps articulate value to different buyer personas. I built competitive intelligence as an ongoing system so the team always knew how customers were evaluating alternatives, including embedded SDK approaches. At Autodesk, I co-launched Autodesk Construction Cloud, positioning a multi-acquisition platform against point solutions. Subscription tiers, usage-based models, and promotional strategies are all territory I've worked directly. Voice of the customer has been central to all of it. I ran a formal customer advisory board at Affinity and fed that research directly into roadmap and pricing decisions.</p>
+    </div>
+
+    <div class="tackle-card">
+      <h3>Training and enabling the people who actually sell and support it.</h3>
+      <p>A product launch isn't done when the press release goes out. It's done when the sales rep can walk a customer through the value in their own words. At Affinity, I built enablement from scratch: battlecards, competitive briefs, onboarding materials, advisory board presentations. At Jelli/iHeartMedia, I was doing customer onboarding and solution engineering before a formal enablement function existed. I've also worked with development teams in scrum environments to validate that what's being built matches spec and market need. I know what it feels like to be the person in the room with a confused customer, and that shapes how I build training for others.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Questions I'd Ask in My First Week</div>
+    <ul class="item-list">
+      <li>What does the current licensing model look like across on-prem and remote deployments, and where are the biggest friction points for customers and for the sales team?</li>
+      <li>How are license usage data and entitlement tracking handled today, and how reliable is the reporting pipeline? Where are the known discrepancies?</li>
+      <li>How are customers currently evaluating embedded SDK alternatives versus Zebra's software offerings, and what's driving those decisions?</li>
+      <li>What does the voice-of-customer feedback loop look like right now? How is customer input getting into product and pricing decisions?</li>
+      <li>What's the relationship between the hardware sales motion and the software licensing motion today, and where does it break down?</li>
+      <li>Which features do customers say matter most, and where does that diverge from what we're prioritizing on the roadmap?</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I Think About This Work</div>
+    <div class="philosophy-block">
+      <p>Software licensing product management is about making the value exchange clear: what does the customer get, what does it cost, and why is that a good deal for both sides? Everything else, the financial modeling, competitive analysis, pricing tiers, training, launch plans, serves that central question. What separates good product managers from great ones is how seriously they take the voice of the customer. Not just collecting feedback, but building a system where customer input directly shapes feature prioritization, pricing, and the roadmap. I've built those systems, and I've worked in scrum environments validating that development tracks to spec and market need. The best product managers move fluently between a spreadsheet, a customer conversation, and a sprint review, because all three are telling you the same thing from different angles.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I'd Want to Be Held Accountable</div>
+    <ul class="item-list">
+      <li>Whether the business case and financial models I build are grounded in real data and lead to sound decisions.</li>
+      <li>Revenue and margin performance of the licensing product lines I own.</li>
+      <li>Whether the sales team can articulate the licensing value proposition confidently after training.</li>
+      <li>Customer adoption, renewal health, and upsell conversion for the subscription products I manage.</li>
+      <li>Whether the voice-of-customer program is producing insights that visibly shape the product roadmap and pricing strategy.</li>
+      <li>Quality of cross-functional relationships with development, marketing, and sales.</li>
+    </ul>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">My Background</div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Affinity</span>
+        <span class="role-title">Director of Product Marketing (promoted from PMM)</span>
+      </div>
+      <p class="role-desc">Owned the product marketing function end-to-end for a CRM platform scaling from $17M to $60M ARR. Built win/loss analysis, competitive intelligence, pricing narratives, sales enablement, and customer advisory board programs. Led customer advisory boards and presented research to enterprise C-suites. Managed a team of 4 plus agency and offshore resources. Promoted from IC to Director after one year.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Autodesk</span>
+        <span class="role-title">Product Marketing Manager</span>
+      </div>
+      <p class="role-desc">Owned TradeTapp, a technical construction risk product, end-to-end. Co-launched Autodesk Construction Cloud. Built persona-specific materials for sales and Customer Success across user types with different workflows. Managed multi-million dollar budgets and coordinated cross-functional launches.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Right This Way Flooring</span>
+        <span class="role-title">Co-Founder</span>
+      </div>
+      <p class="role-desc">Built the business from zero: brand messaging, pricing strategy, sales process, paid digital acquisition (Google Ads), marketing automation, employee communication, referral programs, and all customer-facing content. Generated $550K in qualified pipeline in under five months. Full P&L ownership: pricing, promotional strategy, margin management, and vendor negotiations.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">iHeartMedia (via Jelli)</span>
+        <span class="role-title">Customer Success then Product Marketing</span>
+      </div>
+      <p class="role-desc">Early employee (#25). Built the customer journey from scratch. Did customer onboarding, implementation work, and solution engineering before transitioning into a dedicated product marketing role through the iHeartMedia acquisition. Managed Google AdWords campaigns and marketing automation. Full acquisition experience.</p>
+    </div>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Working With Me</div>
+    <p>People who've worked with me would tell you that I listen well and genuinely care about the people around me. I've managed C-suite relationships on enterprise projects and I've also been the one rolling up my sleeves to get the unglamorous work done, because I've always believed in staying a producer even when I'm in a leadership role. Honest, specific feedback matters to me, both giving it with respect and actively seeking it on my own work. When a meeting could be an async update, I'll say so, and when we do meet, there's an agenda and we end on time.</p>
+  </section>
+
+  <section class="fade-in personal-section">
+    <div class="section-label">Something About Me</div>
+    <p>For two years I lived in rural China as the only foreigner in town, without knowing the language when I arrived. After that I backpacked through Asia for almost a year, including motorcycling up the length of Vietnam. These days you'll find me on multi-week canoe fishing expeditions deep in the Canadian wilderness, or playing guitar, banjo, or mandolin at home with my family. Musical theater as a kid is probably why standing in front of a room at a customer advisory board has never really bothered me. Volunteering at Boys and Girls Club when I can keeps me connected to the community, which matters to me.</p>
+  </section>
+
+</div>
+
+<footer class="contact-footer">
+  <h2>Let's talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m22 7-8.97 5.7a1.94 1.94 0 0 1-2.06 0L2 7"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.361 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank" rel="noopener">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"/><rect x="2" y="9" width="4" height="12"/><circle cx="4" cy="4" r="2"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+      }
+    });
+  }, { threshold: 0.08 });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
