@@ -1,0 +1,409 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Hertzog — How I Can Help Simplot</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+    :root {
+      --color-primary: #3C2415;
+      --color-primary-light: #5A3A25;
+      --color-accent: #C8922A;
+      --color-accent-light: #E8B84A;
+      --color-accent-glow: rgba(200, 146, 42, 0.12);
+      --color-bg: #FDFBF7;
+      --color-bg-warm: #F7F2EA;
+      --color-bg-card: #FFFFFF;
+      --color-text: #2C1A0E;
+      --color-text-secondary: #6B5444;
+      --color-border: rgba(60, 36, 21, 0.1);
+      --color-border-accent: rgba(200, 146, 42, 0.3);
+      --font-base: 'DM Sans', sans-serif;
+      --size-xs: 0.8rem;
+      --size-sm: 0.9rem;
+      --size-base: 1.05rem;
+      --size-lg: 1.25rem;
+      --size-xl: 1.6rem;
+      --size-2xl: 2.2rem;
+      --size-3xl: 2.8rem;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: var(--font-base);
+      font-size: var(--size-base);
+      line-height: 1.7;
+      color: var(--color-text);
+      background: var(--color-bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: linear-gradient(165deg, var(--color-primary) 0%, var(--color-primary-light) 60%, #6B4830 100%);
+      color: #FDFBF7;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(200, 146, 42, 0.08) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--color-accent), var(--color-accent-light), var(--color-accent));
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero-name {
+      font-size: var(--size-xs);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--color-accent-light);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-headline {
+      font-size: var(--size-3xl);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+    }
+
+    .hero-sub {
+      font-size: var(--size-lg);
+      line-height: 1.65;
+      color: rgba(253, 251, 247, 0.85);
+      font-weight: 300;
+      max-width: 640px;
+    }
+
+    .container {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--color-border);
+    }
+
+    .section-label {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--color-accent);
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: var(--size-xl);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--color-text);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .tackle-card {
+      background: var(--color-bg-card);
+      border: 1px solid var(--color-border);
+      border-left: 3px solid var(--color-accent);
+      border-radius: 6px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 1px 3px rgba(44, 26, 14, 0.04);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .tackle-card:hover {
+      box-shadow: 0 4px 12px rgba(44, 26, 14, 0.08);
+      border-color: var(--color-border-accent);
+    }
+
+    .tackle-card h3 {
+      font-size: var(--size-lg);
+      font-weight: 600;
+      color: var(--color-primary);
+      margin-bottom: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .tackle-card p {
+      color: var(--color-text-secondary);
+      font-size: var(--size-sm);
+      line-height: 1.7;
+    }
+
+    .background-item {
+      margin-bottom: 1.4rem;
+    }
+
+    .background-item .role-line {
+      font-weight: 600;
+      color: var(--color-primary);
+      font-size: var(--size-base);
+    }
+
+    .background-item .role-line span {
+      font-weight: 400;
+      color: var(--color-text-secondary);
+    }
+
+    .background-item p {
+      color: var(--color-text-secondary);
+      font-size: var(--size-sm);
+      margin-top: 0.3rem;
+    }
+
+    .callout-block {
+      background: var(--color-bg-warm);
+      border-radius: 8px;
+      padding: 2rem 2.2rem;
+      margin: 1rem 0;
+      border: 1px solid var(--color-border);
+    }
+
+    .callout-block p {
+      color: var(--color-text-secondary);
+      font-size: var(--size-sm);
+    }
+
+    .working-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .working-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.8rem;
+    }
+
+    .working-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      background: var(--color-accent);
+      border-radius: 50%;
+    }
+
+    footer {
+      background: var(--color-primary);
+      color: rgba(253, 251, 247, 0.8);
+      text-align: center;
+      padding: 3rem 2rem;
+      margin-top: 1rem;
+    }
+
+    footer .footer-name {
+      font-size: var(--size-lg);
+      font-weight: 600;
+      color: #FDFBF7;
+      margin-bottom: 0.6rem;
+    }
+
+    footer a {
+      color: var(--color-accent-light);
+      text-decoration: none;
+      transition: color 0.2s;
+    }
+
+    footer a:hover {
+      color: #FDFBF7;
+    }
+
+    footer .footer-links {
+      font-size: var(--size-sm);
+      margin-top: 0.4rem;
+    }
+
+    footer .footer-links span {
+      margin: 0 0.5rem;
+      opacity: 0.4;
+    }
+
+    /* Fade-in animation */
+    .fade-in {
+      opacity: 0;
+      transform: translateY(18px);
+      transition: opacity 0.65s ease, transform 0.65s ease;
+    }
+
+    .fade-in.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* Responsive */
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero-headline { font-size: var(--size-2xl); }
+      .hero-sub { font-size: var(--size-base); }
+      .container { padding: 0 1.5rem; }
+      section { padding: 2.5rem 0; }
+      .tackle-card { padding: 1.4rem 1.5rem; }
+      .callout-block { padding: 1.5rem 1.6rem; }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- HERO -->
+  <header class="hero">
+    <div class="hero-inner">
+      <div class="hero-name">Jeremy Hertzog</div>
+      <h1 class="hero-headline">How I Can Help Simplot</h1>
+      <p class="hero-sub">I've spent my career helping companies make sense of complicated things: product stories, brand narratives, internal communications, and go-to-market strategy. I'm moving home to Boise and I want to do that work here.</p>
+    </div>
+  </header>
+
+  <!-- WHY SIMPLOT -->
+  <div class="container">
+    <section class="fade-in">
+      <div class="section-label">Why Simplot</div>
+      <p>My grandparents were farmers in Iowa and Alabama, and I grew up in Boise. Simplot has always been part of the landscape here. It's a company that actually feeds people, and it's a family company, which means something to me as I come back to Idaho to raise my own family.</p>
+      <p>Simplot is also in an interesting moment. You've completed the Clarebout acquisition and expanded to 23 production facilities worldwide. You've taken over the Ore-Ida brand. You're modernizing infrastructure, opening new facilities like the Columbia Basin plant, and adapting your organization to support a much larger global footprint. That kind of growth creates real communication and brand challenges, and those are the exact problems I've spent my career solving.</p>
+    </section>
+
+    <!-- WHAT I'M GOOD AT -->
+    <section class="fade-in">
+      <div class="section-label">The Problems I Solve</div>
+
+      <div class="tackle-card">
+        <h3>Keeping a brand coherent as a company scales and diversifies.</h3>
+        <p>Simplot spans food processing, phosphate mining, fertilizer manufacturing, farming, ranching, and cattle production across nine countries. When a company operates at that breadth, the risk is that every division starts telling its own story and the brand fragments. At Affinity, I created the messaging frameworks that became the source of truth for how the company described itself, its products, and its value. Those frameworks served sales, marketing, executive leadership, and external partners as the company grew from $17M to $60M ARR. At Right This Way Flooring, I built an entire brand identity from scratch: name, voice, visual direction, website, social, sales language, referral program, in-store experience. I've built brand systems from zero and I've maintained them through rapid growth. Both are hard in different ways.</p>
+      </div>
+
+      <div class="tackle-card">
+        <h3>Communicating through acquisitions, restructuring, and organizational change.</h3>
+        <p>Integrating Clarebout means bringing together two family-owned companies with different cultures, different markets, and 3,000 new employees across Europe. That's the kind of moment where communication determines whether people feel like they're part of something or like something is happening to them. At Jelli, I went through a full acquisition by iHeartMedia and helped shape how the combined organization talked about itself. At Affinity, I communicated through the kind of rapid scaling that means constant reorgs, new leaders, and shifting priorities. I built the messaging frameworks and internal materials that kept people aligned through all of it. I know what good change communication looks like during those moments and what bad communication costs.</p>
+      </div>
+
+      <div class="tackle-card">
+        <h3>Making complex products and operations feel clear to different audiences.</h3>
+        <p>Simplot's customers range from global restaurant chains to individual growers to retail consumers buying Ore-Ida at the grocery store. The audiences across the business are even more varied. At Affinity, I wrote for audiences as different as junior analysts and Fortune 500 managing partners and made both groups feel like the message was for them. At Autodesk, I owned a construction risk product called TradeTapp and had to speak the language of general contractors, subcontractors, and risk managers, all with different needs and different levels of technical comfort. The trick is always specificity. Real stories about real people doing real work outperform corporate generalities every time.</p>
+      </div>
+
+      <div class="tackle-card">
+        <h3>Building the systems that make marketing and communications actually work.</h3>
+        <p>Simplot recently implemented Highspot for sales enablement, uses Bynder for digital asset management, and runs Optimizely and inRiver for content distribution. I've lived in this world. At Affinity, I built competitive intelligence programs, win/loss analysis, battlecards, and sales toolkits that reps actually used. I've managed agencies and offshore talent, coordinated product launches with tight cross-functional dependencies, and produced executive presentations requiring alignment through senior leadership. I don't just create content. I build the processes and infrastructure that make content production repeatable, measurable, and useful to the people who need it.</p>
+      </div>
+    </section>
+
+    <!-- WHERE I'VE DONE THIS -->
+    <section class="fade-in">
+      <div class="section-label">Where I've Done This</div>
+
+      <div class="background-item">
+        <div class="role-line">Director of Product Marketing, Affinity <span>~4 years</span></div>
+        <p>Promoted from PMM after one year. Helped scale the company from $17M to $60M ARR. Managed a team of 4 plus agencies. Owned messaging architecture, competitive positioning, sales enablement, case studies, event content, executive materials, and customer advisory board programs.</p>
+      </div>
+
+      <div class="background-item">
+        <div class="role-line">Co-Founder, Right This Way Flooring</div>
+        <p>Built the entire brand, marketing function, and customer experience from zero. Generated $550K in qualified pipeline in under five months in a competitive local market.</p>
+      </div>
+
+      <div class="background-item">
+        <div class="role-line">Product Marketing Manager, Autodesk</div>
+        <p>Owned TradeTapp, a construction risk analysis product. Co-launched Autodesk Construction Cloud. Built persona-specific content and enablement across audiences with very different needs. Command of the Message certified.</p>
+      </div>
+
+      <div class="background-item">
+        <div class="role-line">Customer Success &rarr; Product Marketing, Jelli / iHeartMedia</div>
+        <p>Employee #25 at Jelli. Navigated the full acquisition by iHeartMedia. Wore every hat: Customer Success, partner marketing, sales enablement, product marketing, customer journey mapping, content, and advertising. Built lifecycle communication systems and mapped engagement to the customer journey.</p>
+      </div>
+
+      <div class="background-item">
+        <div class="role-line">Product Marketing Consultant <span>Current</span></div>
+        <p>Working with an AI music startup on positioning and a behavioral, event-based lifecycle email system. Advising a PLG agency on services and go-to-market.</p>
+      </div>
+    </section>
+
+    <!-- HOW I THINK ABOUT THE WORK -->
+    <section class="fade-in">
+      <div class="section-label">How I Think About the Work</div>
+      <div class="callout-block">
+        <p>The best brand content almost never comes from a comms team brainstorming in a conference room. It comes from going out into the company, finding the people doing interesting work, and helping them tell their own story in a way that reflects who the organization is and what it stands for. The core story stays the same, but how you tell it has to shift by audience, channel, and moment. And the acid test is always the same: if the people closest to the work won't use it, it's not done yet.</p>
+      </div>
+    </section>
+
+    <!-- WORKING WITH ME -->
+    <section class="fade-in">
+      <div class="section-label">Working With Me</div>
+      <ul class="working-list">
+        <li>I ask a lot of questions in the first few weeks. Not because I'm unsure of myself, but because I've learned that listening before acting leads to much better work.</li>
+        <li>I write things down. Frameworks, processes, playbooks. If I build something useful, I document it so the next person can use it too.</li>
+        <li>I'm direct with feedback and I welcome it in return. I'd rather hear something is off early than find out after it ships.</li>
+        <li>I've managed people, agencies, and cross-functional projects. I'm comfortable leading and comfortable being a senior individual contributor. Both are real work.</li>
+        <li>I care about doing good work more than getting credit for it.</li>
+      </ul>
+    </section>
+  </div>
+
+  <!-- FOOTER -->
+  <footer>
+    <div class="footer-name">Jeremy Hertzog</div>
+    <div class="footer-links">
+      <a href="mailto:hertzogjeremy@gmail.com">hertzogjeremy@gmail.com</a>
+      <span>&middot;</span>
+      208-794-3438
+      <span>&middot;</span>
+      <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank">LinkedIn</a>
+    </div>
+  </footer>
+
+  <script>
+    // Scroll-triggered fade-in
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.1 });
+
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  </script>
+
+</body>
+</html>
