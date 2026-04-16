@@ -1,0 +1,484 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Jeremy Hertzog — How I Can Help Gymreapers</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+    :root {
+      --deep: #0A0A0A;
+      --deep-light: #1A1A1A;
+      --accent: #888888;
+      --light-accent: #BBBBBB;
+      --accent-glow: rgba(255, 255, 255, 0.06);
+      --bg: #F5F5F5;
+      --bg-warm: #EBEBEB;
+      --bg-card: #FFFFFF;
+      --text: #1A1A1A;
+      --text-muted: #555555;
+      --border: rgba(0, 0, 0, 0.10);
+      --border-accent: rgba(0, 0, 0, 0.25);
+      --size-xs: 0.8rem;
+      --size-sm: 0.9rem;
+      --size-base: 1.05rem;
+      --size-lg: 1.25rem;
+      --size-xl: 1.6rem;
+      --size-2xl: 2.2rem;
+      --size-3xl: 2.8rem;
+    }
+
+    *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+
+    body {
+      font-family: 'DM Sans', sans-serif;
+      font-size: var(--size-base);
+      line-height: 1.7;
+      color: var(--text);
+      background: var(--bg);
+      -webkit-font-smoothing: antialiased;
+    }
+
+    .hero {
+      background: linear-gradient(165deg, #000000 0%, #111111 60%, #1A1A1A 100%);
+      color: #FAFAF8;
+      padding: 5rem 2rem 4rem;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .hero::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      right: -20%;
+      width: 600px;
+      height: 600px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.04) 0%, transparent 70%);
+      border-radius: 50%;
+    }
+
+    .hero::after {
+      content: '';
+      position: absolute;
+      bottom: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, #555555, #999999, #555555);
+    }
+
+    .hero-texture {
+      position: absolute;
+      inset: 0;
+      background-image: radial-gradient(circle at 20% 80%, rgba(255, 255, 255, 0.03) 0%, transparent 50%);
+      pointer-events: none;
+    }
+
+    .hero-inner {
+      max-width: 760px;
+      margin: 0 auto;
+      position: relative;
+      z-index: 1;
+    }
+
+    .hero h1 {
+      font-size: var(--size-xs);
+      font-weight: 500;
+      letter-spacing: 0.15em;
+      text-transform: uppercase;
+      color: var(--light-accent);
+      margin-bottom: 1.2rem;
+    }
+
+    .hero-role {
+      font-size: var(--size-3xl);
+      font-weight: 700;
+      line-height: 1.15;
+      margin-bottom: 1.5rem;
+      letter-spacing: -0.02em;
+      color: white;
+    }
+
+    .hero-divider {
+      width: 50px;
+      height: 3px;
+      background: var(--accent);
+      margin-bottom: 1.5rem;
+      border-radius: 2px;
+    }
+
+    .hero-intro {
+      font-size: var(--size-lg);
+      line-height: 1.65;
+      color: rgba(255,255,255,0.82);
+      font-weight: 300;
+      max-width: 640px;
+      margin-bottom: 0.8rem;
+    }
+
+    .content {
+      max-width: 760px;
+      margin: 0 auto;
+      padding: 0 2rem;
+    }
+
+    section {
+      padding: 3.5rem 0;
+    }
+
+    section + section {
+      border-top: 1px solid var(--border);
+    }
+
+    .section-label {
+      font-size: var(--size-xs);
+      font-weight: 600;
+      letter-spacing: 0.12em;
+      text-transform: uppercase;
+      color: var(--accent);
+      margin-bottom: 1.2rem;
+    }
+
+    h2 {
+      font-size: var(--size-xl);
+      font-weight: 600;
+      color: var(--deep);
+      margin-bottom: 1rem;
+      line-height: 1.3;
+    }
+
+    p {
+      margin-bottom: 1rem;
+      color: var(--text);
+    }
+
+    p:last-child { margin-bottom: 0; }
+
+    .tackle-card {
+      background: var(--bg-card);
+      border: 1px solid var(--border);
+      border-left: 3px solid var(--accent);
+      border-radius: 6px;
+      padding: 1.8rem 2rem;
+      margin-bottom: 1.2rem;
+      box-shadow: 0 1px 3px rgba(0,0,0,0.04);
+      transition: box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+
+    .tackle-card:hover {
+      box-shadow: 0 4px 12px rgba(0,0,0,0.08);
+      border-color: var(--border-accent);
+    }
+
+    .tackle-card h3 {
+      font-size: var(--size-lg);
+      font-weight: 600;
+      color: var(--deep);
+      margin-bottom: 0.8rem;
+      line-height: 1.35;
+    }
+
+    .tackle-card p {
+      color: var(--text-muted);
+      font-size: var(--size-sm);
+      line-height: 1.7;
+    }
+
+    .philosophy-block {
+      background: var(--bg-warm);
+      border-radius: 8px;
+      padding: 2rem 2.2rem;
+      margin: 1rem 0;
+      border: 1px solid var(--border);
+    }
+
+    .philosophy-block p {
+      color: var(--text-muted);
+      font-size: var(--size-sm);
+    }
+
+    .item-list {
+      list-style: none;
+      padding: 0;
+    }
+
+    .item-list li {
+      position: relative;
+      padding-left: 1.4rem;
+      margin-bottom: 0.8rem;
+      color: var(--text);
+      font-size: var(--size-base);
+    }
+
+    .item-list li::before {
+      content: '';
+      position: absolute;
+      left: 0;
+      top: 0.6em;
+      width: 6px;
+      height: 6px;
+      background: var(--accent);
+      border-radius: 50%;
+    }
+
+    .role-entry {
+      padding: 0.8rem 0;
+      border-bottom: 1px solid var(--border);
+    }
+
+    .role-entry:last-child { border-bottom: none; }
+
+    .role-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: baseline;
+      gap: 0.5rem;
+      flex-wrap: wrap;
+    }
+
+    .role-company {
+      font-weight: 600;
+      color: var(--deep);
+      font-size: var(--size-base);
+    }
+
+    .role-title {
+      font-weight: 400;
+      color: var(--text-muted);
+      font-size: var(--size-sm);
+    }
+
+    .role-dates {
+      font-size: var(--size-xs);
+      color: var(--text-muted);
+      margin-top: 0.15rem;
+    }
+
+    .role-desc {
+      color: var(--text-muted);
+      font-size: var(--size-sm);
+      margin-top: 0.3rem;
+    }
+
+    .contact-footer {
+      background: #000000;
+      color: white;
+      padding: 3.5rem 2rem;
+      text-align: center;
+      position: relative;
+      overflow: hidden;
+    }
+
+    .contact-footer::before {
+      content: '';
+      position: absolute;
+      top: -50%;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 500px;
+      height: 500px;
+      background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 65%);
+      border-radius: 50%;
+    }
+
+    .contact-footer h2 {
+      color: white;
+      margin-bottom: 1.5rem;
+      font-size: var(--size-xl);
+      font-weight: 600;
+      position: relative;
+    }
+
+    .contact-links {
+      display: flex;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 2rem;
+      position: relative;
+    }
+
+    .contact-links a {
+      color: rgba(255,255,255,0.75);
+      text-decoration: none;
+      font-size: var(--size-sm);
+      font-weight: 400;
+      transition: color 0.2s ease;
+      display: flex;
+      align-items: center;
+      gap: 0.5rem;
+    }
+
+    .contact-links a:hover { color: var(--light-accent); }
+
+    .contact-icon { width: 16px; height: 16px; opacity: 0.7; }
+
+    .fade-in {
+      opacity: 0;
+      transform: translateY(12px);
+      transition: opacity 0.5s ease, transform 0.5s ease;
+    }
+
+    .fade-in.visible { opacity: 1; transform: translateY(0); }
+
+    @media (max-width: 640px) {
+      .hero { padding: 3.5rem 1.5rem 3rem; }
+      .hero-role { font-size: var(--size-2xl); }
+      .hero-intro { font-size: var(--size-base); }
+      .content { padding: 0 1.5rem; }
+      section { padding: 2.5rem 0; }
+      .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+      .philosophy-block { padding: 1.5rem; }
+      .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+      .contact-footer { padding: 2.5rem 1.5rem; }
+      .role-header { flex-direction: column; gap: 0.15rem; }
+    }
+  </style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-texture"></div>
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">How I Can Help Gymreapers</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">I've spent my career helping companies figure out how to grow without losing what makes them work. I've done it at startups scaling fast, at a Fortune 500, and as a founder building from zero. I'm moving back to Boise and I want to do that work for a brand I actually use.</p>
+  </div>
+</header>
+
+<div class="content">
+
+  <section class="fade-in">
+    <div class="section-label">Why Gymreapers</div>
+    <p>I grew up in Boise and I'm moving back with my wife and two boys after eight years away in the Bay Area, Sun Valley, and Boulder. Boulder is where I fell in love with weightlifting, and it's become a serious part of how I take care of myself. So when I started paying attention to Gymreapers as a customer, and then realized the company was built in my hometown, it got my attention in a different way.</p>
+    <p>Gymreapers has made the Inc. 5000 three years in a row and ranked #1 fastest growing company in Idaho. That kind of growth doesn't happen by accident. It takes a clear identity, real product quality, and the discipline to keep building when things are working. What caught my attention from a professional standpoint is where Gymreapers is now. You've expanded from lifting gear into apparel, running, lifestyle accessories, and athlete partnerships. The product catalog spans bodybuilding, cross training, powerlifting, and strongman, with new collections dropping regularly. That kind of expansion creates real marketing and brand challenges: how to keep the identity tight as the audience and product lines grow, how to build the operational infrastructure to support the pace, and how to make sure every new category reinforces what Gymreapers stands for instead of diluting it. Those are the problems I've spent my career solving.</p>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">The Problems I Solve</div>
+
+    <div class="tackle-card">
+      <h3>Keeping a brand sharp as it scales into new categories.</h3>
+      <p>Gymreapers started with knee sleeves and lifting belts. Now you're selling apparel collections, running gear, bags, and lifestyle products to an audience that's broadening fast. The risk at this stage is that the brand starts to feel like it's everything to everyone instead of something specific to someone. At Affinity, I built the messaging architecture that became the company-wide source of truth as the product expanded and the company grew from $17M to $60M ARR. At Right This Way Flooring, I built an entire brand from scratch in a commoditized market and generated $550K in qualified pipeline in under five months by being specific about who we were and who we were for. Gymreapers already has a strong identity. The work now is making sure every new collection, every new category, and every new athlete partnership reinforces it instead of diluting it.</p>
+    </div>
+
+    <div class="tackle-card">
+      <h3>Building the marketing operations infrastructure that high-growth DTC brands need.</h3>
+      <p>At a certain scale, marketing can't run on instinct and hustle anymore. It needs systems: lifecycle email flows tied to real customer behavior, segmentation that actually reflects how people buy, content production processes that don't bottleneck on one person, and data that tells you what's working and what's not. I'm currently consulting for an AI music startup where I built a behavioral, event-based email system that triggers campaigns from actual product usage data instead of static lists. At Affinity, I built competitive intelligence programs, win/loss analysis, and enablement toolkits from scratch. I don't just make content. I build the systems that let a marketing team operate at the speed the business needs.</p>
+    </div>
+
+    <div class="tackle-card">
+      <h3>Connecting product positioning to how real customers actually think.</h3>
+      <p>Gymreapers sells to bodybuilders, powerlifters, CrossFitters, strongman athletes, and now runners. Those audiences overlap but they don't think the same way, and what makes a product compelling to one group might not register with another. At Autodesk, I owned a construction risk product called TradeTapp and built persona-specific content for general contractors, subcontractors, and risk managers, each with different workflows, language, and technical comfort levels. At Affinity, I designed and ran customer advisory boards and a formal win/loss program that fed real buyer language back into positioning and product decisions. Understanding how different customer segments think about the product, and then reflecting that understanding back in the marketing, is how good brands get specific instead of generic.</p>
+    </div>
+
+    <div class="tackle-card">
+      <h3>Running the cross-functional coordination that keeps launches on track.</h3>
+      <p>New collections, seasonal drops, athlete collabs, event partnerships like Wodapalooza. Each one requires alignment across product, creative, marketing, and operations. At Affinity, I coordinated product launches across engineering, sales, marketing, Customer Success, and senior leadership. I managed 4 direct reports, agencies, offshore talent, and a multi-million dollar budget. At Right This Way Flooring, I ran everything: brand, marketing, sales process, event strategy, and employee training, all at once, because that's what building a business from zero requires. I know how to keep multiple workstreams moving without dropping anything.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Where I've Done This</div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Self-Employed</span>
+        <span class="role-title">Product Marketing Consultant</span>
+      </div>
+      <div class="role-dates">Jan 2026 &ndash; Present</div>
+      <p class="role-desc">Lifecycle marketing, PLG, positioning, and product launches for an AI music startup. Built a behavioral, event-based email system triggered by product usage data. Product marketing services for an agency serving seed/Series A companies.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Right This Way Flooring</span>
+        <span class="role-title">Co-Founder, Marketing &amp; CX</span>
+      </div>
+      <div class="role-dates">Jun 2025 &ndash; Dec 2025</div>
+      <p class="role-desc">Built a business from zero: brand, website, sales pitch, referral program, event strategy, in-store process, training materials, and every word of customer-facing content. $550K in qualified pipeline in under five months.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Affinity.co</span>
+        <span class="role-title">Director, Product Marketing</span>
+      </div>
+      <div class="role-dates">Sep 2021 &ndash; Jun 2025 &middot; Promoted from PMM to Director after one year</div>
+      <p class="role-desc">Messaging architecture, enablement toolkits, win/loss programs, customer advisory boards, competitive intelligence, executive communications, communication strategy through reorgs and leadership transitions. Managed 4 direct reports, agencies, offshore talent, and a multi-million dollar budget. $17M to $60M ARR.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">Autodesk</span>
+        <span class="role-title">Product Marketing Manager</span>
+      </div>
+      <div class="role-dates">Apr 2020 &ndash; Sep 2021</div>
+      <p class="role-desc">Owned TradeTapp end-to-end. Persona-specific content across distinct user types. Co-launched Autodesk Construction Cloud. Command of the Message (Force Management) certified. Multi-million dollar budget.</p>
+    </div>
+
+    <div class="role-entry">
+      <div class="role-header">
+        <span class="role-company">iHeartMedia (via Jelli)</span>
+        <span class="role-title">Customer Success &rarr; Product Marketing</span>
+      </div>
+      <div class="role-dates">May 2017 &ndash; Apr 2020</div>
+      <p class="role-desc">Employee #25. Built the customer journey from scratch, navigated the full acquisition by iHeartMedia. Customer Success, partner marketing, sales enablement, product marketing, lifecycle programs, content, solution engineering, AdWords.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">How I Think About the Work</div>
+    <div class="philosophy-block">
+      <p>The brands that win in DTC aren't the ones with the biggest ad budget. They're the ones where every touchpoint, from the first Instagram impression to the post-purchase email to the unboxing experience, feels like the same company talking. Building that consistency while scaling fast is hard. It requires systems, not just taste. My job is to build both.</p>
+    </div>
+  </section>
+
+  <section class="fade-in">
+    <div class="section-label">Working With Me</div>
+    <ul class="item-list">
+      <li>I ask a lot of questions in the first few weeks. Not because I'm unsure of myself, but because I've learned that listening before acting leads to much better work.</li>
+      <li>I write things down. Frameworks, processes, playbooks. If I build something useful, I document it so the next person can use it too.</li>
+      <li>I'm direct with feedback and I welcome it in return. I'd rather hear something is off early than find out after it ships.</li>
+      <li>I've managed people, agencies, and cross-functional projects. I'm comfortable leading and comfortable being a senior individual contributor. Both are real work.</li>
+      <li>I care about doing good work more than getting credit for it.</li>
+    </ul>
+  </section>
+
+</div>
+
+<footer class="contact-footer">
+  <h2>Let's talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="m2 4 10 8 10-8"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 0 1-2.18 2 19.79 19.79 0 0 1-8.63-3.07 19.5 19.5 0 0 1-6-6 19.79 19.79 0 0 1-3.07-8.67A2 2 0 0 1 4.11 2h3a2 2 0 0 1 2 1.72c.127.96.362 1.903.7 2.81a2 2 0 0 1-.45 2.11L8.09 9.91a16 16 0 0 0 6 6l1.27-1.27a2 2 0 0 1 2.11-.45c.907.338 1.85.573 2.81.7A2 2 0 0 1 22 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank" rel="noopener">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 0 1-2.063-2.065 2.064 2.064 0 1 1 2.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, { threshold: 0.1, rootMargin: '0px 0px -40px 0px' });
+
+  document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+</script>
+
+</body>
+</html>
