@@ -1,0 +1,529 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Jeremy Hertzog — Product Marketing | NVIDIA</title>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,300;0,9..40,400;0,9..40,500;0,9..40,600;0,9..40,700;1,9..40,400&display=swap');
+
+  :root {
+    --nv-black: #0A0A0A;
+    --nv-dark: #1E1E1E;
+    --nv-green: #76B900;
+    --nv-green-dim: rgba(118,185,0,0.12);
+    --nv-green-glow: rgba(118,185,0,0.06);
+    --nv-green-bright: #8DD600;
+    --nv-gray: #2A2A2A;
+    --page-bg: #F6F6F4;
+    --card-bg: #FFFFFF;
+    --text-primary: #1A1A1A;
+    --text-body: #3D3D3D;
+    --text-muted: #6B6B6B;
+    --border: #E0E0DC;
+    --border-light: #EDEDEA;
+    --font: 'DM Sans', -apple-system, sans-serif;
+    --size-xs: 0.75rem;
+    --size-sm: 0.875rem;
+    --size-base: 0.95rem;
+    --size-md: 1.05rem;
+    --size-lg: 1.25rem;
+    --size-xl: clamp(1.5rem, 3.5vw, 2rem);
+    --size-hero: clamp(2.2rem, 5.5vw, 3.2rem);
+  }
+
+  *, *::before, *::after { margin: 0; padding: 0; box-sizing: border-box; }
+  html { scroll-behavior: smooth; }
+
+  body {
+    font-family: var(--font);
+    color: var(--text-primary);
+    background: var(--page-bg);
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  /* HERO */
+  .hero {
+    background: var(--nv-black);
+    color: white;
+    padding: 5rem 2rem 4.5rem;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .hero::before {
+    content: '';
+    position: absolute;
+    top: -30%;
+    right: -10%;
+    width: 600px;
+    height: 600px;
+    background: radial-gradient(circle, rgba(118,185,0,0.10) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero::after {
+    content: '';
+    position: absolute;
+    bottom: -40%;
+    left: -10%;
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(118,185,0,0.06) 0%, transparent 55%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .hero-inner {
+    max-width: 680px;
+    margin: 0 auto;
+    position: relative;
+    z-index: 1;
+  }
+
+  .hero h1 {
+    font-size: var(--size-hero);
+    font-weight: 700;
+    letter-spacing: -0.02em;
+    line-height: 1.15;
+    margin-bottom: 0.5rem;
+  }
+
+  .hero-role {
+    font-size: var(--size-lg);
+    font-weight: 400;
+    color: var(--nv-green);
+    margin-bottom: 1.5rem;
+    letter-spacing: 0.01em;
+  }
+
+  .hero-divider {
+    width: 48px;
+    height: 3px;
+    background: var(--nv-green);
+    margin-bottom: 1.75rem;
+    border-radius: 2px;
+  }
+
+  .hero-intro {
+    font-size: var(--size-md);
+    line-height: 1.8;
+    color: rgba(255,255,255,0.82);
+    font-weight: 300;
+    max-width: 600px;
+  }
+
+  /* CONTENT */
+  .content {
+    max-width: 680px;
+    margin: 0 auto;
+    padding: 0 2rem;
+  }
+
+  section {
+    padding: 2.75rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  section:last-of-type { border-bottom: none; }
+
+  .section-label {
+    font-size: var(--size-xs);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--nv-green);
+    margin-bottom: 1.25rem;
+  }
+
+  section p {
+    font-size: var(--size-base);
+    line-height: 1.8;
+    color: var(--text-body);
+  }
+
+  section p + p { margin-top: 0.75rem; }
+
+  /* CHALLENGE CARDS */
+  .tackle-card {
+    background: var(--card-bg);
+    border: 1px solid var(--border);
+    border-left: 3px solid var(--nv-green);
+    border-radius: 6px;
+    padding: 1.5rem 1.5rem 1.5rem 1.75rem;
+    margin-bottom: 1rem;
+    transition: box-shadow 0.25s ease;
+  }
+
+  .tackle-card:hover {
+    box-shadow: 0 4px 16px rgba(0,0,0,0.06);
+  }
+
+  .tackle-card:last-child { margin-bottom: 0; }
+
+  .tackle-label {
+    font-size: var(--size-sm);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.5rem;
+  }
+
+  .tackle-card p {
+    font-size: var(--size-base);
+    line-height: 1.75;
+    color: var(--text-body);
+    margin: 0;
+  }
+
+  /* CALLOUT BLOCK */
+  .callout-block {
+    background: var(--nv-green-glow);
+    border-left: 3px solid var(--nv-green);
+    border-radius: 0 6px 6px 0;
+    padding: 1.5rem 1.75rem;
+  }
+
+  .callout-block p {
+    font-size: var(--size-base);
+    line-height: 1.8;
+    color: var(--text-body);
+    margin: 0;
+  }
+
+  /* BULLET LISTS */
+  .item-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .item-list li {
+    font-size: var(--size-base);
+    line-height: 1.75;
+    color: var(--text-body);
+    padding-left: 1.25rem;
+    position: relative;
+    margin-bottom: 0.6rem;
+  }
+
+  .item-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 0.65em;
+    width: 6px;
+    height: 6px;
+    background: var(--nv-green);
+    border-radius: 50%;
+  }
+
+  /* BACKGROUND */
+  .background-item {
+    padding: 1rem 0;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .background-item:last-child { border-bottom: none; }
+
+  .role-line {
+    font-size: var(--size-base);
+    font-weight: 600;
+    color: var(--text-primary);
+    margin-bottom: 0.35rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: baseline;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .role-line span {
+    font-size: var(--size-xs);
+    font-weight: 400;
+    color: var(--text-muted);
+    white-space: nowrap;
+  }
+
+  .background-item p {
+    font-size: var(--size-sm);
+    line-height: 1.7;
+    color: var(--text-muted);
+    margin: 0;
+  }
+
+  /* WORKING WITH ME */
+  .working-list {
+    list-style: none;
+    padding: 0;
+  }
+
+  .working-list li {
+    font-size: var(--size-base);
+    line-height: 1.75;
+    color: var(--text-body);
+    padding: 0.6rem 0 0.6rem 1.25rem;
+    position: relative;
+    border-bottom: 1px solid var(--border-light);
+  }
+
+  .working-list li:last-child { border-bottom: none; }
+
+  .working-list li::before {
+    content: '';
+    position: absolute;
+    left: 0;
+    top: 1.05em;
+    width: 6px;
+    height: 6px;
+    background: var(--nv-green);
+    border-radius: 50%;
+  }
+
+  /* FOOTER */
+  .contact-footer {
+    background: var(--nv-black);
+    color: white;
+    padding: 3.5rem 2rem;
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+  }
+
+  .contact-footer::before {
+    content: '';
+    position: absolute;
+    top: -50%;
+    left: 50%;
+    transform: translateX(-50%);
+    width: 500px;
+    height: 500px;
+    background: radial-gradient(circle, rgba(118,185,0,0.08) 0%, transparent 60%);
+    border-radius: 50%;
+    pointer-events: none;
+  }
+
+  .contact-footer h2 {
+    font-size: var(--size-xl);
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+    position: relative;
+  }
+
+  .contact-links {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 2rem;
+    position: relative;
+  }
+
+  .contact-links a {
+    color: rgba(255,255,255,0.7);
+    text-decoration: none;
+    font-size: var(--size-sm);
+    font-weight: 400;
+    transition: color 0.2s ease;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+  }
+
+  .contact-links a:hover { color: var(--nv-green); }
+
+  .contact-icon {
+    width: 16px;
+    height: 16px;
+    opacity: 0.7;
+  }
+
+  /* ANIMATIONS */
+  .fade-in {
+    opacity: 0;
+    transform: translateY(12px);
+    transition: opacity 0.5s ease, transform 0.5s ease;
+  }
+
+  .fade-in.visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* RESPONSIVE */
+  @media (max-width: 640px) {
+    .hero { padding: 3.5rem 1.5rem 3rem; }
+    .content { padding: 0 1.5rem; }
+    section { padding: 2.25rem 0; }
+    .tackle-card { padding: 1.25rem 1.25rem 1.25rem 1.5rem; }
+    .callout-block { padding: 1.25rem 1.5rem; }
+    .contact-links { flex-direction: column; gap: 1rem; align-items: center; }
+    .contact-footer { padding: 2.5rem 1.5rem; }
+    .role-line { flex-direction: column; gap: 0.15rem; }
+  }
+</style>
+</head>
+<body>
+
+<header class="hero">
+  <div class="hero-inner">
+    <h1>Jeremy Hertzog</h1>
+    <div class="hero-role">Product Marketing at NVIDIA</div>
+    <div class="hero-divider"></div>
+    <p class="hero-intro">
+      I've spent my career helping companies make sense of complicated things. New categories that don't have established language yet. Technical products where the audiences range from engineers to executives. Platform stories that need to hold together across a dozen different use cases. I'd like to do that work at NVIDIA.
+    </p>
+  </div>
+</header>
+
+<div class="content">
+
+  <!-- WHY NVIDIA -->
+  <section class="fade-in">
+    <div class="section-label">Why NVIDIA</div>
+    <p>
+      Most of the companies I've worked for were trying to be the best version of something that already existed. A better CRM. A better construction risk tool. A better way to buy radio ads. NVIDIA is doing something different. You're not improving an existing category. You're building the infrastructure layer that makes entirely new categories possible, from autonomous vehicles to digital twins to sovereign AI. That's a fundamentally harder marketing problem, and it's the kind of problem I've spent my career getting good at.
+    </p>
+    <p>
+      I've done product marketing across six industries over nine years, at companies ranging from 25-person startups to Autodesk. Every role required me to learn something deeply technical and figure out how to explain it to people who thought about it very differently from each other. I'm relocating back to Boise, Idaho with my family. I grew up there and I'm coming home after years working for Bay Area tech companies. I want to do meaningful work at a company where the technology matters beyond its own market. NVIDIA is that.
+    </p>
+  </section>
+
+  <!-- THREE THINGS I'D BRING -->
+  <section class="fade-in">
+    <div class="section-label">What I'd Bring to an NVIDIA Product Marketing Team</div>
+
+    <div class="tackle-card">
+      <div class="tackle-label">Building a platform narrative that holds together across audiences who need to hear it differently</div>
+      <p>
+        NVIDIA's challenge isn't positioning a single product. It's telling a platform story that connects chips, software, cloud infrastructure, and applications into something coherent for developers, enterprise buyers, data scientists, channel partners, and OEMs, all of whom care about different things. I've done a version of this before. At Affinity, I built the messaging architecture that connected the company story to individual product lines to sales talk tracks to customer case studies. It wasn't a positioning doc. It was a system where every piece fed the next, and the whole thing held together as the company scaled from $17M to $60M in ARR. At Autodesk, I owned product marketing for TradeTapp, where the audiences ranged from general contractors who wanted a simple risk score to actuarial-minded risk managers who wanted to see the data model. Each needed different messaging, but it all had to trace back to one product truth. NVIDIA operates at a much larger scale, but the discipline is the same: one story, told differently, without losing its spine.
+      </p>
+    </div>
+
+    <div class="tackle-card">
+      <div class="tackle-label">Marketing into categories that don't fully exist yet</div>
+      <p>
+        NVIDIA is constantly entering markets where the category language hasn't been established. Quantum computing, digital twins, AI factories, sovereign AI. These aren't mature markets with established buyer expectations and competitive shorthand. They're new, and the product marketing work is less about positioning against alternatives and more about helping people understand why the category matters in the first place. I've done this kind of work three times. At Jelli, I was employee #25 marketing programmatic radio to an industry that had never heard the term. At Right This Way Flooring, I co-founded a business and built the entire brand narrative, positioning, and sales process from zero in a commoditized market where nobody expected differentiation. Right now, I'm working with an AI music startup where the product category is still being defined. None of these are NVIDIA-scale, but the muscle is the same: figure out what the thing is, figure out why someone should care, and build the language before anyone else does.
+      </p>
+    </div>
+
+    <div class="tackle-card">
+      <div class="tackle-label">Competitive positioning and enterprise enablement that holds up over long sales cycles</div>
+      <p>
+        NVIDIA's enterprise deals can stretch two to four years from first engagement to purchase. That means the competitive positioning and sales enablement materials have to be built for durability, not just launch-day impact. At Affinity, I ran continuous competitive intelligence programs, customer advisory boards, and a formal win/loss program that fed real buyer language back into our messaging. The battlecards, talk tracks, and pitch decks I built weren't one-and-done deliverables. They were living documents that got updated as the competitive landscape shifted. I also know the tools. I've worked hands-on with Marketo for marketing automation and lifecycle campaigns, Google Ads for paid acquisition, and Salesforce for pipeline visibility. With AMD, Intel, and hyperscaler custom silicon all closing ground, the competitive story matters more now than it did two years ago, and I know how to build the systems that keep it sharp.
+      </p>
+    </div>
+  </section>
+
+  <!-- FIRST WEEK QUESTIONS -->
+  <section class="fade-in">
+    <div class="section-label">Questions I'd Ask in My First Week</div>
+    <ul class="item-list">
+      <li>How does the platform story connect across product lines today, and where do the seams show when a customer engages with more than one team?</li>
+      <li>Which new market entries (quantum, robotics, sovereign AI) are furthest along in their category narrative, and which ones still need it built?</li>
+      <li>What does the field say about competitive positioning against AMD and hyperscaler custom silicon? Where does our story hold up, and where does it break?</li>
+    </ul>
+  </section>
+
+  <!-- HOW I THINK ABOUT THE WORK -->
+  <section class="fade-in">
+    <div class="section-label">How I Think About Product Marketing</div>
+    <div class="callout-block">
+      <p>
+        The hardest part of product marketing at a platform company is maintaining coherence. Every product team has its own roadmap, its own technical language, its own idea of what matters most. The PMM's job is to connect all of that into a story that makes sense to someone on the outside, whether they're evaluating a single product or trying to understand the whole platform. You start with what the product does today, not what the roadmap promises. You figure out who cares and why, in their language, not yours. And you build from there. The messaging framework is the foundation, not the deliverable. The deliverable is a field team that can explain the value confidently, a partner ecosystem that can extend the story into their own markets, and customers who can articulate why they chose you. Everything else is just artifacts.
+      </p>
+    </div>
+  </section>
+
+  <!-- ACCOUNTABILITY -->
+  <section class="fade-in">
+    <div class="section-label">How I'd Want to Be Held Accountable</div>
+    <ul class="item-list">
+      <li>Is the field using the materials I build? If not, something is wrong with the materials.</li>
+      <li>Can people across different product teams and partner organizations explain the value clearly and consistently?</li>
+      <li>Are new category entries gaining traction? Not just launched, but building the language and buyer understanding that leads to pipeline.</li>
+      <li>Is competitive positioning holding up in live deals, not just on paper?</li>
+    </ul>
+  </section>
+
+  <!-- BACKGROUND -->
+  <section class="fade-in">
+    <div class="section-label">My Background</div>
+
+    <div class="background-item">
+      <div class="role-line">Product Marketing Consultant <span>2026 to Present</span></div>
+      <p>Positioning and behavioral lifecycle email systems for an AI music startup. Go-to-market advisory for a PLG agency serving early-stage companies.</p>
+    </div>
+
+    <div class="background-item">
+      <div class="role-line">Co-Founder, Right This Way Flooring <span>2025</span></div>
+      <p>Built the business from zero: brand narrative, pricing strategy, paid digital acquisition (Google Ads), marketing automation, sales process, and every customer-facing word. Generated $550K in qualified pipeline in under five months. Full P&L ownership.</p>
+    </div>
+
+    <div class="background-item">
+      <div class="role-line">Director of Product Marketing, Affinity <span>2021 to 2025</span></div>
+      <p>Built the messaging architecture the company used from boardroom to field during scaling from $17M to $60M ARR. Ran competitive intelligence, customer advisory boards, and win/loss programs. Created battlecards, talk tracks, and pitch decks that shortened sales cycles. Managed a team of 4, multi-million dollar budget, agencies, and offshore talent. Promoted from PMM after one year.</p>
+    </div>
+
+    <div class="background-item">
+      <div class="role-line">Product Marketing Manager, Autodesk <span>2020 to 2021</span></div>
+      <p>Owned TradeTapp product marketing across distinct technical personas. Co-launched Autodesk Construction Cloud. Command of the Message certified. Multi-million dollar budget.</p>
+    </div>
+
+    <div class="background-item">
+      <div class="role-line">Customer Success to Product Marketing, Jelli / iHeartMedia <span>2017 to 2020</span></div>
+      <p>Employee #25 at Jelli. Built the customer onboarding process from scratch in a category (programmatic radio) that was brand new. Navigated the full acquisition by iHeartMedia, reshaping company messaging through a complete identity transformation. Hands-on Marketo and Google AdWords.</p>
+    </div>
+
+    <div class="background-item">
+      <div class="role-line">University of Arizona, Eller College of Management <span>2013</span></div>
+      <p>B.S. Business Administration, Marketing concentration, Music minor.</p>
+    </div>
+  </section>
+
+  <!-- WORKING WITH ME -->
+  <section class="fade-in">
+    <div class="section-label">Working With Me</div>
+    <ul class="working-list">
+      <li>I ask a lot of questions in the first few weeks. Not because I'm unsure of myself, but because I've learned that listening before acting leads to much better work.</li>
+      <li>I write things down. Frameworks, processes, playbooks. If I build something useful, I document it so the next person can use it too.</li>
+      <li>I'm direct with feedback and I welcome it in return. I'd rather hear something is off early than find out after it ships.</li>
+      <li>I've managed people, agencies, and cross-functional projects. I'm comfortable leading and comfortable being a senior individual contributor.</li>
+    </ul>
+  </section>
+
+</div>
+
+<!-- FOOTER -->
+<footer class="contact-footer">
+  <h2>Let's Talk</h2>
+  <div class="contact-links">
+    <a href="mailto:hertzogjeremy@gmail.com">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><rect x="2" y="4" width="20" height="16" rx="2"/><path d="M22 4L12 13 2 4"/></svg>
+      hertzogjeremy@gmail.com
+    </a>
+    <a href="tel:208-794-3438">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M22 16.92v3a2 2 0 01-2.18 2 19.79 19.79 0 01-8.63-3.07 19.5 19.5 0 01-6-6 19.79 19.79 0 01-3.07-8.67A2 2 0 014.11 2h3a2 2 0 012 1.72c.127.96.361 1.903.7 2.81a2 2 0 01-.45 2.11L8.09 9.91a16 16 0 006 6l1.27-1.27a2 2 0 012.11-.45c.907.339 1.85.573 2.81.7A2 2 0 0122 16.92z"/></svg>
+      208-794-3438
+    </a>
+    <a href="https://www.linkedin.com/in/jeremy-hertzog-82653356/" target="_blank">
+      <svg class="contact-icon" viewBox="0 0 24 24" fill="currentColor"><path d="M20.447 20.452h-3.554v-5.569c0-1.328-.027-3.037-1.852-3.037-1.853 0-2.136 1.445-2.136 2.939v5.667H9.351V9h3.414v1.561h.046c.477-.9 1.637-1.85 3.37-1.85 3.601 0 4.267 2.37 4.267 5.455v6.286zM5.337 7.433a2.062 2.062 0 01-2.063-2.065 2.064 2.064 0 112.063 2.065zm1.782 13.019H3.555V9h3.564v11.452zM22.225 0H1.771C.792 0 0 .774 0 1.729v20.542C0 23.227.792 24 1.771 24h20.451C23.2 24 24 23.227 24 22.271V1.729C24 .774 23.2 0 22.222 0h.003z"/></svg>
+      LinkedIn
+    </a>
+  </div>
+</footer>
+
+<script>
+  document.addEventListener('DOMContentLoaded', () => {
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          entry.target.classList.add('visible');
+        }
+      });
+    }, { threshold: 0.12 });
+    document.querySelectorAll('.fade-in').forEach(el => observer.observe(el));
+  });
+</script>
+
+</body>
+</html>
